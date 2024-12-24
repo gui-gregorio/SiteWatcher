@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ["id", "email", "name", "number"]
+        fields = ["id", "email", "name", "number", "password"]
         extra_kwargs = {
             'password': {"write_only": True}
         }
@@ -21,4 +21,3 @@ class UserSerializers(serializers.ModelSerializer):
         new_user.set_password(password)
         new_user.save
         return new_user
-
